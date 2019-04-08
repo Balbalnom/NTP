@@ -1,0 +1,9 @@
+{
+  "production": {
+    "username": "CSC648Team101",
+    "password": "CSC648101",
+    "database": "CSC648",
+    "host": "aa1omhz8lptmxo7.cjfzvp4mt3kp.us-east-2.rds.amazonaws.com",
+    "dialect": "mysql"
+  }
+}
