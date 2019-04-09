@@ -1,18 +1,26 @@
 {
-  "name": "csc648team101",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "untitled",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "cd client && npm install && npm start",
-    "server": "cd server && npm install && npm start",
-    "start": "concurrently --kill-others \"npm run server\" \"npm run client\""
+    "start": "nodemon server.js"
   },
-  "keywords": [],
-  "author": "team101",
-  "license": "ISC",
+  "main": "server.js",
   "dependencies": {
-    "concurrently": "4.1.0"
+    "bcrypt": "^3.0.5",
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "ejs": "^2.6.1",
+    "express": "~4.16.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "~1.9.0",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.5",
+    "nodemon": "^1.18.10",
+    "sequelize": "^5.1.1",
+    "sequelize-cli": "^5.4.0"
   }
 }
