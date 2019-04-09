@@ -5,7 +5,6 @@ module.exports = {
         let response = {};
         listingModel.findAll({where:{description:input}}).then(listings => {
             response.data = {};
-            response.data.value = 'ya';
             response.data.listings = [];
             for(var i = 0; i < listings.length; i++) {
                 response.data.listings.push(listings[i].address);
@@ -14,5 +13,11 @@ module.exports = {
           // projects will be an array of Project instances with the specified name
         });
         return response;   
+    },
+    findAllListings() {
+        // search for specific attributes - hash usage
+        listingModel.findAll().then(listings => {
+            return listings;
+        });
     }
 }

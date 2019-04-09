@@ -1,0 +1,39 @@
+<!-- Single Featured Property -->
+<div class="col-12 col-md-6 col-xl-4">
+    <div class="single-featured-property mb-50 wow fadeInUp" data-wow-delay="100ms">
+        <!-- Property Thumbnail -->
+        <div class="property-thumb">
+            <img src="img/bg-img/feature1.jpg" alt="">
+
+            <div class="tag">
+                <span>For Sale</span>
+            </div>
+            <div class="list-price">
+                <p>$<%= listing.price %></p>
+            </div>
+        </div>
+        <!-- Property Content -->
+        <div class="property-content">
+            <h5><%= listing.name %></h5>
+            <p class="location"><img src="img/icons/location.png" alt=""><%= listing.address %></p>
+            <p><%= listing.description %></p>
+            <div class="property-meta-data d-flex align-items-end justify-content-between">
+                <div class="new-tag">
+                    <img src="img/icons/new.png" alt="">
+                </div>
+                <div class="bathroom">
+                    <img src="img/icons/bathtub.png" alt="">
+                    <span><%= listing.bathroom %></span>
+                </div>
+                <div class="garage">
+                    <img src="img/icons/garage.png" alt="">
+                    <span><%= listing.garage %></span>
+                </div>
+                <div class="space">
+                    <img src="img/icons/space.png" alt="">
+                    <span><%= listing.space %> sq ft</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
