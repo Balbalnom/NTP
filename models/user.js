@@ -1,18 +1,15 @@
-const sequelize = require("sequelize");
+'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define('User', 
-  {
-    userName: DataTypes.STRING,
-    password: DataTypes.STRING,
+  const User = sequelize.define('User', {
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
-    email: DataTypes.STRING
-  }, {
-    timestamps: true
-  });
+    email: DataTypes.STRING,
+    userName: DataTypes.STRING,
+    password: DataTypes.STRING,
+    userType: DataTypes.STRING
+  }, {});
   User.associate = function(models) {
-    // associations is similiar to the xml class diagram def
-    // associations can be defined here 
+    // associations can be defined here
   };
   return User;
 };
