@@ -1,4 +1,4 @@
-const listingModel = require('../models/db')['Listing'];
+const listingModel = require('../models/db').Listing;
 module.exports = {
     findListing(input) {
         // search for specific attributes - hash usage
