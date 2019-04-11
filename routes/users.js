@@ -3,15 +3,7 @@ const express = require('express');
 const router = express.Router();
 var User = require("../controllers/user");
 
-router.post('/register', function (req, res) {
-    const result = User.register(req);
-    console.log(result);
-    if (result.code == 200) {
-        res.render('login', { message: result.message });
-    } else {
-        res.render('sign-up', { message: result.message });
-    }
-});
+router.post('/register', User.register);
 router.get('/sign-up', function (req, res) {
     res.render('sign-up', { message: undefined });
 });
