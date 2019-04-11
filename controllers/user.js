@@ -7,7 +7,7 @@ exports.register = function(req, res) {
   const password = body.password;
   if (body.password != body.confirmPassword) {
     res.status(400).render('sign-up', { message: 'Password not match' });
-  } else if (username && password) {
+  } else if (username && password) { //check username and password is not null
     userModel.findOne({ where: { userName: username }}).then(function(checkUser) {
       if (checkUser) {
         res.status(400).render('sign-up', { message: 'User name has been used' });

@@ -4,19 +4,18 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-const userModel = require('./models/db').User;
-
+const userModel = require('./models/db').User;;
 var app = express();
 var session = require("express-session");
 const {comparePassword} = require('./lib/bcrypt');
 
+
 // passport user setup
 passport.use('local-login', new LocalStrategy(
     function(username, password, done) {
-        userModel.findOne({ where: { userName: username }}).then(function(user, err) {
+        userModel.findOne({ where: { userName: username }}).then(function(user, err) { //findOne() ajax call and nodejs called ajax as promise object
             if (err) { return done(err); }
             if (!user) {
                 return done(null, false, { message: 'Incorrect username.' });
@@ -54,10 +53,10 @@ app.post('/login', function(req, res, next) {
   passport.authenticate('local-login', {
     successRedirect : '/', // redirect to the secure profile section
     failureRedirect : '/login', // redirect back to the signup page if there is an error
-    failureFlash : 'arrrrewefbbb' // allow flash messages
+    failureFlash : true // allow flash messages
     },function(err, user, info) {
         if (err) { return next(err); }
-        if (!user) { return res.redirect('/login'); }
+        if (!user) { return res.redirect(info,'/login'); }
         req.logIn(user, function(err) {
             if (err) { return next(err); }
             return res.redirect('/');
@@ -65,6 +64,7 @@ app.post('/login', function(req, res, next) {
   })(req, res, next);
 });
 
+//session
 passport.serializeUser(function(user, done) {
     return done(null, user.id);
 });
@@ -74,7 +74,6 @@ passport.deserializeUser(function(id, done) {
         return done(err, user);
     });
 });
-
 
 var PORT = 8081;
 app.listen(PORT, () => console.log('Server started on port '+PORT+''));
