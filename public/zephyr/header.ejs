@@ -17,7 +17,9 @@
                     <img src="img/icons/phone-call.png" alt="">
                 </div>
                 <div class="number">
-                    <a href="tel:+1234567">+1234567</a>
+                    <% if (user) { %>
+                        <a href="">Welcome <%= user.userType %> <%= user.firstName %>!</a>
+                    <% } %>
                 </div>
             </div>
         </div>
@@ -49,10 +51,17 @@
                     <div class="classynav">
                         <ul>
                             <li><a href="/">Home</a></li>
-                            <li><a href="/sign-up">Sign Up</a></li>
-                            <li><a href="/login">Log In</a></li>
-                            <li><a href="/listings">Listings</a></li>
                             <li><a href="/about">About Us</a></li>
+                            <li><a href="/listings">Listings</a></li>
+                            <% if (user) { %>
+                                <li><a href="/logout">Log Out</a></li>
+                                <% if (user.userType == "landlord") { %>
+                                    <li><a href="/new-listing">New Listing</a></li>
+                                <% } %>
+                            <% } else { %>
+                                <li><a href="/sign-up">Sign Up</a></li>
+                                <li><a href="/login">Log In</a></li>
+                            <% } %>
                         </ul>
 
                         <!-- Search Form -->

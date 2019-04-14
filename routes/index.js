@@ -3,7 +3,8 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', {featuredListings: [
+  res.render('index', { user: req.user,
+    featuredListings: [
     {
       price: 234,
       name: 'aaa',
@@ -15,7 +16,7 @@ router.get('/', function(req, res, next) {
   ] });
 });
 router.get('/about', function(req, res, next) {
-  res.render('about');
+  res.render('about', { user: req.user });
 });
 
 module.exports = router;

@@ -17,6 +17,7 @@ const {comparePassword} = require('./lib/bcrypt');
 passport.use('local-login', new LocalStrategy(
     function(username, password, done) {
         userModel.findOne({ where: { userName: username }}).then(function(user, err) {
+            console.log('findone = ', err);
             if (err) { return done(err); }
             if (!user) {
                 return done(null, false, { message: 'Incorrect username.' });
@@ -56,9 +57,11 @@ app.post('/login', function(req, res, next) {
     failureRedirect : '/login', // redirect back to the signup page if there is an error
     failureFlash : 'arrrrewefbbb' // allow flash messages
     },function(err, user, info) {
+        console.log('user = ', user);
         if (err) { return next(err); }
         if (!user) { return res.redirect('/login'); }
         req.logIn(user, function(err) {
+            console.log('user = ', user);
             if (err) { return next(err); }
             return res.redirect('/');
         });

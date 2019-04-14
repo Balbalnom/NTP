@@ -5,7 +5,13 @@ var listing = require("../controllers/listing");
 router.get('/search', function (req, res) {
     res.json(listing.findListing(req.params.input));
 });
-router.get('/listings', function (req, res) {
-    res.render('listings', { listings: res.json(listing.findAllListings()) });
+router.get('/listings', listing.findAllListings);
+router.get('/new-listing', function (req, res) {
+    if (req.user) {
+        res.render('new-listing', { user: req.user, message: undefined  });
+    } else {
+        res.redirect('/');
+    }
 });
+router.post('/new-listing', listing.newListing);
 module.exports = router;

@@ -1607,6 +1607,16 @@ img {
 .south-contact-area .comment-form .form-group,
 .south-contact-area .contact-form .form-group {
   margin-bottom: 10px; }
+.south-contact-area .contact-form .form-control-checkbox {
+  float: left;
+  width: 5%;
+  height: 43px;
+}
+.south-contact-area .contact-form p {
+  height: 43px;
+  line-height: 3;
+  margin-bottom: 0;
+};
 .leave-comment-area .comment-form .form-control,
 .leave-comment-area .contact-form .form-control,
 .south-contact-area .comment-form .form-control,

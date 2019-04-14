@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('head'); %>
+</head>
+
+<body>
+    <%- include('header'); %>
+    <!-- ##### Breadcumb Area Start ##### -->
+    <section class="breadcumb-area bg-img" style="background-image: url(img/bg-img/hero1.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-content">
+                        <h3 class="breadcumb-title">New Listing</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Breadcumb Area End ##### -->
+    
+    <section class="south-contact-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-heading">
+                        <h6>New Listing</h6>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col-12 col-lg-4">
+                    <div class="contact-form">
+                        <form action="/new-listing" method="post">
+                            <% if (message) { %>
+                                <h6><%= message %></h6>
+                            <% } %>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="title" id="listing-roomate" placeholder="Title">
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" class="form-control-checkbox" name="hasRoomate" id="listing-roomate" value="1">
+                                <p>Has Roomate</p>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" class="form-control-checkbox" name="parking" id="listing-parking" value="1">
+                                <p>Provide Parking</p>
+                            </div>
+                            <div class="form-group">
+                                <input type="checkbox" class="form-control-checkbox" name="allowPets" id="listing-roomate" value="1">
+                                <p>Allow Pets</p>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="zipCode" id="listing-zip" placeholder="Zip Code">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="picture" id="listing-zip" placeholder="Picture">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="price" id="contact-last-name" placeholder="Price">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="address" id="contact-last-name" placeholder="Address">
+                            </div>
+                            <div class="form-group">
+                                <h6>Description</h6>
+                                <textarea rows="4" cols="50" name="description" placeholder="some description">
+                                </textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="houseSize" id="contact-last-name" placeholder="House Size e.g. 700sq.">
+                            </div>
+                            <div class="form-group">
+                                <p>Number of Bathroom</p>
+                                <input type="number" id="numOfBathroom" name="numOfBathroom" value="1" style="margin: 10px;">
+                            </div>
+                            <div class="form-group">
+                                <p>Number of Bedroom</p>
+                                <input type="number" id="numOfBedroom" name="numOfBedroom" value="1" style="margin: 10px;">
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" id="houseType" name="houseType">
+                                    <option>All Catagories</option>
+                                    <option>Apartment</option>
+                                    <option>Condo</option>
+                                    <option>TownHouse</option>
+                                    <option>House</option>
+                                    <option>Loft</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn south-btn">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <%- include('footer'); %>
+    <%- include('script'); %>
+</body>
+
+</html>
