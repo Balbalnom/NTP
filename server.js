@@ -57,7 +57,7 @@ app.post('/login', function(req, res, next) {
     },function(err, user, info) {
         console.log('user = ', user);
         if (err) { return next(err); }
-        if (!user) { return res.redirect(info,'/login'); }
+        if (!user) { return res.redirect('/login'); }
         req.logIn(user, function(err) {
             console.log('user = ', user);
             if (err) { return next(err); }
